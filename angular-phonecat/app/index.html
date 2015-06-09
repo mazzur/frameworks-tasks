@@ -20,6 +20,20 @@
 </head>
 <body>
 
+  <div ng-controller="CartCtrl">
+    <span class="cart-toggle btn" ng-click="isOpened = !isOpened; $event.stopPropagation();">Cart {{number}}</span>
+    <div class="cart" ng-show="isOpened && !!number">
+      <ul class="phones">
+        <li ng-repeat="phone in phones"
+            class="thumbnail phone-listing">
+          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl || '//:0' }}"></a>
+          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+        </li>
+      </ul>
+      <span class="btn">CHECKOUT</span>
+    </div>
+  </div>
+
   <div class="view-container">
     <div ng-view class="view-frame"></div>
   </div>

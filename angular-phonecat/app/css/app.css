@@ -4,6 +4,9 @@ body {
   padding-top: 20px;
 }
 
+.view-frame {
+  margin-top: 60px;
+}
 
 .phone-images {
   background-color: white;
@@ -16,6 +19,7 @@ body {
 
 .phones {
   list-style: none;
+  padding: 0;
 }
 
 .thumb {
@@ -28,7 +32,7 @@ body {
 
 .phones li {
   clear: both;
-  height: 115px;
+  min-height: 115px;
   padding-top: 15px;
 }
 
@@ -96,4 +100,38 @@ ul.specs dt {
 
 h1 {
   border-bottom: 1px solid gray;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px;
+  border: 1px solid black;
+  background: white;
+}
+
+.btn:hover {
+  color: white;
+  background: black;
+}
+
+.cart-toggle {
+  z-index: 10000;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cart {
+  z-index: 10000;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  margin: 15px;
+  width: 30%;
+  padding: 15px 15px 0 15px;
+  background: white;
+  box-shadow: 2px 10px 54px -13px rgba(0,0,0,0.75);
+  text-align: center;
 }
