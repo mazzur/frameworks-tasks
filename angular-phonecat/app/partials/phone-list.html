@@ -20,6 +20,7 @@
           <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
           <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
           <p>{{phone.snippet}}</p>
+          <span> ${{phone.price}} </span>
           <span class="btn" ng-click="addToCart(phone)">Add to cart</span>
         </li>
       </ul>

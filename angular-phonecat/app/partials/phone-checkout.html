@@ -5,7 +5,8 @@
             <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl || '//:0' }}"></a>
             <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
             <p>quantity: <input class="input-quantity" ng-model="phone.quantity" type="number"/></p>
+            <p> ${{phone.price}} </p>
         </li>
     </ul>
-    <p class="checkout-total">TOTAL: </p>
+    <h1 class="checkout-total">TOTAL: ${{total}}</h1>
 </div>

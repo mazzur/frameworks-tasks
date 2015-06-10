@@ -38,6 +38,7 @@ body {
   clear: both;
   min-height: 115px;
   padding-top: 15px;
+  text-align: left;
 }
 
 /** Detail View **/
@@ -127,6 +128,12 @@ h1 {
   top: 0;
 }
 
+.cart-number {
+  padding: 2px 5px;
+  border: 1px solid #000;
+  border-radius: 40%;
+}
+
 .cart {
   z-index: 10000;
   position: absolute;
@@ -150,6 +157,7 @@ h1 {
   border: 1px solid #000;
   border-radius: 50%;
   line-height: 17px;
+  text-align: center;
 }
 
 .cart-phone-close:hover {
@@ -161,4 +169,8 @@ h1 {
   width: 30px;
   border: none;
   outline: none;
+}
+
+.checkout-total {
+  text-align: right;
 }

@@ -28,7 +28,8 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$rootScope', '$rou
       $rootScope.$broadcast('add-to-cart', {
         id: phone.id,
         name: phone.name,
-        imageUrl: phone.images[0]
+        imageUrl: phone.images[0],
+        price: phone.price
       });
     }
   }]);
@@ -71,5 +72,9 @@ phonecatControllers.controller('CartCtrl', ['$scope', '$rootScope', '$location',
 
 phonecatControllers.controller('CheckoutCtrl', ['$scope', '$rootScope',
   function($scope, $rootScope) {
-      $scope.phones = $rootScope.checkout;
+    $scope.phones = $rootScope.checkout;
+    $scope.total = $rootScope.checkout.reduce(function(prev, cur) {
+      return prev+ cur.price*cur.quantity;
+    }, 0);
+
   }]);
