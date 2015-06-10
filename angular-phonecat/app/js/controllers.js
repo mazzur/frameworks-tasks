@@ -33,16 +33,43 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$rootScope', '$rou
     }
   }]);
 
-phonecatControllers.controller('CartCtrl', ['$scope',
-  function($scope) {
+phonecatControllers.controller('CartCtrl', ['$scope', '$rootScope', '$location',
+  function($scope, $rootScope, $location) {
     $scope.phones = [];
 
     $scope.$on('add-to-cart', function(event, phone) {
-      if (!$scope.phones.some(function(one) {
-            return one.id === phone.id;
-          })) {
+      var phoneInCart = $scope.phones.filter(function(one) {
+        return one.id === phone.id;
+      });
+      if (!phoneInCart.length) {
+        phone.quantity = 1;
         $scope.phones.push(phone);
         $scope.number = $scope.phones.length;
+      } else {
+        $scope.phones.forEach(function(one) {
+          if (one.id === phone.id) {
+            one.quantity++;
+          }
+        })
       }
     });
+
+    $scope.removeFromCart = function(id) {
+      $scope.phones = $scope.phones.filter(function(phone) {
+        return phone.id !== id;
+      });
+      $scope.number = $scope.phones.length;
+    };
+
+    $scope.checkout = function() {
+      $rootScope.checkout = $scope.phones;
+      $location.path('/checkout');
+      $scope.phones = [];
+      $scope.number = '';
+    }
+  }]);
+
+phonecatControllers.controller('CheckoutCtrl', ['$scope', '$rootScope',
+  function($scope, $rootScope) {
+      $scope.phones = $rootScope.checkout;
   }]);

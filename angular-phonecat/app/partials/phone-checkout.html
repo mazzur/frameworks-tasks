@@ -1,0 +1,11 @@
+<div class="checkout">
+    <h1>CHECKOUT</h1>
+    <ul class="phones">
+        <li ng-repeat="phone in phones" class="thumbnail phone-listing" ng-mouseover="showCloseIcon = true" ng-mouseleave="showCloseIcon = false">
+            <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl || '//:0' }}"></a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>quantity: <input class="input-quantity" ng-model="phone.quantity" type="number"/></p>
+        </li>
+    </ul>
+    <p class="checkout-total">TOTAL: </p>
+</div>
